@@ -4,12 +4,10 @@ export default function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
   const inputRef = useRef();
-  
-  
 
-  useEffect(() => {
-    inputRef.current.focus();
-  });
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -26,19 +24,19 @@ export default function TodoForm(props) {
     });
     store = e.todo;
     setInput("");
-  };  
+  };
 
   const handleOnKeyPress = (event) => {
-    if(event.keyCode === 27){
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: store
-    });
-      }
-}
+    if (event.keyCode === 27) {
+      props.onSubmit({
+        id: Math.floor(Math.random() * 10000),
+        text: store
+      });
+    }
+  };
 
   return (
-   <form onSubmit={handleSubmit} className="todo-form">
+    <form onSubmit={handleSubmit} className="todo-form">
       {props.edit ? (
         <>
           <input

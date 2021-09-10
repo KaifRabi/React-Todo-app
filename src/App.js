@@ -1,11 +1,14 @@
 import "./App.css";
-import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import Popup from "./components/Popup";
 
 export default function App() {
   return (
-    <div className="todo-app">
-      <TodoList />
-    </div>
+    <>
+      <Popup />
+      <div className="todo-app">
+        <TodoList />
+      </div>
+    </>
   );
 }
