@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import Popup from "./Popup";
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
-
+  const [update, setUpdate] = useState(0);
   const addTodo = (e) => {
     if (!e.text || /^\s*$/.test(e.text)) {
       return e.text;
@@ -27,6 +28,8 @@ export default function TodoList() {
     setTodos((prev) =>
       prev.map((item) => (item.id === todoId ? newValue : item))
     );
+
+    setUpdate(update + 1);
   };
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
@@ -38,16 +41,28 @@ export default function TodoList() {
     setTodos(updatedTodos);
   };
 
+  const func = () => {
+    if (update > 0) {
+      let msg = "Your todo has been updated";
+      setTimeout(() => {
+        setUpdate(update - 1);
+      }, 3000);
+      return msg;
+    }
+  };
   return (
-    <div>
-      <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </div>
+    <>
+      <Popup func={func()} update={update} />
+      <div className="todo-app">
+        <h1>What's the Plan for Today?</h1>
+        <TodoForm onSubmit={addTodo} />
+        <Todo
+          todos={todos}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
+          updateTodo={updateTodo}
+        />
+      </div>
+    </>
   );
 }

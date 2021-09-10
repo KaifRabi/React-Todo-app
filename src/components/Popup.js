@@ -1,6 +1,10 @@
 import React from "react";
-import TodoForm from "./TodoForm";
 
-export default function Popup() {
-  return <div className="popup">Your todo has been updated</div>;
+export default function Popup(props) {
+  return (
+    <>
+      {console.log(props.update)}
+      <div className={props.update === 1 ? "popup" : ""}>{props.func}</div>
+    </>
+  );
 }
