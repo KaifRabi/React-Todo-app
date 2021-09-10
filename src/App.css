@@ -7,10 +7,11 @@
 }
 
 body {
+  background: rgb(33, 32, 32);
   background: linear-gradient(
     90deg,
-    rgb(57, 41, 158) 0%,
-    rgba(100, 115, 255, 1) 100%
+    rgba(33, 32, 32, 1) 34%,
+    rgba(29, 28, 28, 1) 63%
   );
 }
 
@@ -20,7 +21,13 @@ body {
   justify-content: start;
   width: 520px;
   min-height: 600px;
-  background: #01061ab2;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 34%,
+    rgba(19, 18, 18, 1) 63%,
+    rgba(79, 74, 74, 1) 100%
+  );
   text-align: center;
   margin: 128px auto;
   border-radius: 10px;
@@ -54,7 +61,7 @@ h1 {
 .todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
-  border: 2px solid #5d0cff;
+  border: 2px solid #e6e5e9;
   outline: none;
   width: 320px;
   background: transparent;
@@ -73,10 +80,10 @@ h1 {
   outline: none;
   background: linear-gradient(
     90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
+    rgb(231, 229, 235) 0%,
+    rgb(158, 156, 160) 100%
   );
-  color: #fff;
+  color: rgb(51, 48, 48);
   text-transform: capitalize;
 }
 
@@ -157,14 +164,37 @@ h1 {
 }
 
 .delete-icon:hover {
+  animation: dlt 0.4s;
   color: rgb(199, 48, 48);
 }
 
 .edit-icon:hover {
+  animation: edt 0.4s;
   color: rgb(71, 199, 71);
 }
 
+@keyframes dlt {
+  from {
+    color: #fff;
+  }
+
+  to {
+    color: rgb(199, 48, 48);
+  }
+}
+
+@keyframes edt {
+  from {
+    color: #fff;
+  }
+
+  to {
+    color: rgb(71, 199, 71);
+  }
+}
+
 .popup {
+  animation: fadein 5s;
   display: inline;
   margin: 10px;
   font-size: 20px;
@@ -181,4 +211,14 @@ h1 {
   font-size: 20px;
   padding: 10px;
   opacity: 0;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

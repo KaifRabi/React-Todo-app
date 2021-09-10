@@ -46,7 +46,7 @@ export default function TodoList() {
       let msg = "Your todo has been updated";
       setTimeout(() => {
         setUpdate(update - 1);
-      }, 3000);
+      }, 5000);
       return msg;
     }
   };
